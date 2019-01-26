@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 
 class App extends Component {
+  state = {
+    isOpen: false
+  }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="nav"> abc </div>
+        <div className="main">
+          <div className="desc">
+            <div className="desc-menu">menu</div>
+            <div className="desc-content">content</div>
+          </div>
+          <div className="problem">
+            <div className="problem-list">list</div>
+            <div className="problem-content">content</div>
+          </div>
+          <div className="workspace">
+            <div className="editor">
+              <textarea></textarea>
+            </div>
+            <div className="console">
+              <textarea></textarea>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
