@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css'
-
+import Editor from './component/Editor'
+import Menu from './component/Menu'
+import Header from './component/Header'
+import MenuHeader from './component/MenuHeader'
 class App extends Component {
   state = {
     isOpen: false
@@ -15,22 +18,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="nav"> abc </div>
+        <div className="nav" style={{ position: 'relative', height: '100%' }}> <Header ></Header> </div>
         <div className="main">
           <div className="desc">
-            <div className="desc-menu">menu</div>
-            <div className="desc-content">content</div>
+            <div className="desc-header">
+              <MenuHeader></MenuHeader>
+            </div>
+            <div className="desc-contents">
+              <div className="desc-menu">MENU<Menu></Menu></div>
+              <div className="desc-content">CONTENT</div>
+            </div>
+
           </div>
           <div className="problem">
-            <div className="problem-list">list</div>
-            <div className="problem-content">content</div>
+            <div className="problem-list">LIST</div>
+            <div className="problem-content">CONTENT</div>
           </div>
           <div className="workspace">
-            <div className="editor">
-              <textarea></textarea>
-            </div>
-            <div className="console">
-              <textarea></textarea>
+            <div className="editor" style={{ position: 'relative', height: '100%' }}>
+              <Editor></Editor>
             </div>
           </div>
         </div>
