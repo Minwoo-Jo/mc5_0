@@ -56,7 +56,6 @@ class Editor extends Component {
     });
   }
   handleRun = (e) => {
-    console.log(e)
     const code = this.state.code;
 
     const { dispatch } = this.props;
@@ -65,10 +64,6 @@ class Editor extends Component {
   }
   render() {
     const { code } = this.props;
-    console.log(this.props)
-    console.log("$$$$$$")
-    console.log(code)
-
     if (code.fetchingUpdate) {
       code.fetchingUpdate = !code.fetchingUpdate
       return <Fragment>
@@ -101,7 +96,7 @@ class Editor extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("###")
+  console.log("EDITOR UPDATE")
   console.log(state)
   return { code: state.runReducer }
 }

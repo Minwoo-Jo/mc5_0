@@ -3,19 +3,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectMenu } from '../action/selectMenu.js';
 
-
 class Discription extends Component {
     static propTypes = {
-        user: PropTypes.objectOf(PropTypes.any).isRequired,
+        index: PropTypes.objectOf(PropTypes.any).isRequired,
         dispatch: PropTypes.func.isRequired,
     };
   
     render() {
-        <div></div>
+        const { index } = this.props
+        return( 
+            <div>{index}</div>
+
+        )
+           
     }
 }
 
 function mapStateToProps(state) {
-    return { user: state.user }
+    console.log("DISCRIPTION UPDATE")
+    return { index: state.menuReducer.index }
 }
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(Discription);

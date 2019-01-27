@@ -3,7 +3,7 @@ import { selectMenu, MENU_REQUEST, MENU_SUCCESS, MENU_FAILURE } from '../action/
 
 const defaultState = {
     fetchingUpdate: false,
-    index: {}
+    index: 0
 };
 
 const menuReducer = (state = defaultState, action) => {

@@ -9,13 +9,15 @@ export default () => {
 
         switch (action.type) {
             case "LOGIN":
-                return { code: "teST" }
+                return next({ result: action.result, type: `${type}_SUCCESS`})
             case "RUN":
                 return next({ result: lc.run('<SRC>', action.result, { predefined: true, timeLimit: 1 }), type: `${type}_SUCCESS` });
             case "SELECTMENU":
+            console.log("select menu")
                 return next({ result: action.result, type: `${type}_SUCCESS`})
-            case "SELECT_PROBLEM":
-                return null
+            case "SELECTPROBLEM":
+            console.log("select problem")
+                return next({ result: action.result, type: `${type}_SUCCESS`})
 
             case "KEYDOWN":
                 return null
