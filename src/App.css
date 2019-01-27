@@ -17,57 +17,106 @@ div#root {
 }
 
 .nav {
+  flex: 0.03;
+  display: flex;
   background-color: #bbb;
 }
 
+.nav .header {
+  margin-left: auto;
+  padding-right: 8px;
+}
+
 .main {
-  background-color: #ddd;
+  background-color: #bab6c5;
   padding: 4px;
   display: flex;
   flex-direction: row;
   flex: 1;
 }
 
-.desc {
-  background-color: #daa;
-  padding: 4px;
-  width: 320px;
+.side {
   display: flex;
+  flex-direction: column;
+}
+
+.side-header {
+  background-color: #ffffff;
+  display: flex;
+  flex: 0.1;
+  flex-direction: row;
+  margin: 4px;
+  margin-bottom: 2px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 5px #00000010;
+}
+
+.side-content {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.desc {
+  background-color: #bab6c5;
+  padding: 0px;
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.desc-contents {
+  display: flex;
+  flex: 1;
   flex-direction: row;
 }
 
 .desc-menu {
-  background-color: #8f8;
+  background-color: #ffffff;
   padding: 4px;
-  width: 64px;
+  width: 78px;
+  margin: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 5px #00000010;
 }
+
 .desc-content {
-  background-color: #88f;
+  background-color: #ffffff;
   padding: 4px;
   flex: 1;
+  margin: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 5px #00000010;
 }
 
 .problem {
-  background-color: #ada;
-  padding: 4px;
+  background-color: #bab6c5;
+  padding: 0px;
   width: 320px;
   display: flex;
   flex-direction: column;
+  
 }
 .problem-list {
-  background-color: #f88;
+  background-color: #ffffff;
   padding: 4px;
+  margin: 4px;
   height: 256px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 5px #00000010;
 }
 
 .problem-content {
-  background-color: #88f;
+  background-color: #ffffff;
   padding: 4px;
+  margin: 4px;
   flex: 1;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 5px #00000010;
 }
 
 .workspace {
-  background-color: #aad;
+  background-color: #bab6c5;
   padding: 4px;
   flex: 1;
   display: flex;
@@ -77,10 +126,34 @@ div#root {
 .editor {
   flex: 1;
   display: flex;
+  flex-direction: column;
 }
 
-.editor > textarea {
+.editor > #codearea > .codeflask {
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 5px #00000010;
+}
+
+.editor > #codearea {
   flex: 1;
+  
+}
+
+.editor > #toolbar {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.editor > .console {
+  flex: 0,2;
+}
+
+.editor > .console > textarea {
+  flex: 1;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 5px #00000010;
+
 }
 
 .console {
@@ -88,6 +161,7 @@ div#root {
   display: flex;
 }
 
-.console > textarea {
-  flex: 1;
+
+textarea {
+  border-width: 0px;
 }
