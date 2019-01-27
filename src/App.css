@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+
 body {
   position: absolute;
   width: 100vw;
   height: 100vh;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 div#root {
@@ -17,9 +20,19 @@ div#root {
 }
 
 .nav {
-  flex: 0.03;
+  padding: 8px;
+  flex: 0;
   display: flex;
-  background-color: #bbb;
+  align-items: center;
+  background-color: #8f84af;
+  box-shadow: 0px 3px 6px 3px #00000080;
+}
+
+.nav-brand {
+  margin-left: 16px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .nav .header {
@@ -43,12 +56,12 @@ div#root {
 .side-header {
   background-color: #ffffff;
   display: flex;
-  flex: 0.1;
   flex-direction: row;
+  height: 64px;
   margin: 4px;
   margin-bottom: 2px;
   border-radius: 4px;
-  box-shadow: 2px 2px 5px 5px #00000010;
+  box-shadow: 2px 2px 5px 2px #00000040;
 }
 
 .side-content {
@@ -58,39 +71,32 @@ div#root {
 }
 
 .desc {
-  background-color: #bab6c5;
+  background-color: #ffffff;
   padding: 0px;
-  width: 480px;
+  
   display: flex;
-  flex-direction: column;
-}
-
-.desc-contents {
-  display: flex;
-  flex: 1;
   flex-direction: row;
+  margin: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 2px #00000040;
 }
 
 .desc-menu {
-  background-color: #ffffff;
   padding: 4px;
   width: 78px;
-  margin: 4px;
-  border-radius: 4px;
-  box-shadow: 2px 2px 5px 5px #00000010;
 }
 
 .desc-content {
-  background-color: #ffffff;
   padding: 4px;
-  flex: 1;
-  margin: 4px;
-  border-radius: 4px;
-  box-shadow: 2px 2px 5px 5px #00000010;
+  width: 480px;
+  overflow: auto;
+  word-break: break-all;
+  border-left-width: 1px;
+  border-left-color: #bab6c5;
+  border-left-style: solid;
 }
 
 .problem {
-  background-color: #bab6c5;
   padding: 0px;
   width: 320px;
   display: flex;
@@ -103,7 +109,10 @@ div#root {
   margin: 4px;
   height: 256px;
   border-radius: 4px;
-  box-shadow: 2px 2px 5px 5px #00000010;
+  box-shadow: 2px 2px 5px 2px #00000040;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .problem-content {
@@ -112,11 +121,10 @@ div#root {
   margin: 4px;
   flex: 1;
   border-radius: 4px;
-  box-shadow: 2px 2px 5px 5px #00000010;
+  box-shadow: 2px 2px 5px 2px #00000040;
 }
 
 .workspace {
-  background-color: #bab6c5;
   padding: 4px;
   flex: 1;
   display: flex;
@@ -132,7 +140,7 @@ div#root {
 .editor > #codearea > .codeflask {
   position: relative;
   border-radius: 4px;
-  box-shadow: 2px 2px 5px 5px #00000010;
+  box-shadow: 2px 2px 5px 2px #00000040;
 }
 
 .editor > #codearea {
@@ -152,8 +160,7 @@ div#root {
 .editor > .console > textarea {
   flex: 1;
   border-radius: 4px;
-  box-shadow: 2px 2px 5px 5px #00000010;
-
+  box-shadow: 2px 2px 5px 2px #00000040;
 }
 
 .console {
@@ -162,6 +169,15 @@ div#root {
 }
 
 
+/* Components */
+
 textarea {
   border-width: 0px;
+}
+
+/* Others */
+
+hidden {
+  display: none;
+  visibility: hidden;
 }
