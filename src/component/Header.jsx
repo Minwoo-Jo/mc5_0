@@ -12,8 +12,9 @@ export default class Header extends Component {
 
     render() {
         return (
-            <AppBar style= {{position : 'relative', height : '100%'}}><LogIn></LogIn></AppBar>
-
+            <div className="header">
+                <LogIn></LogIn>
+            </div>
         )
     }
 }

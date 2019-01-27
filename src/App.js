@@ -20,19 +20,22 @@ class App extends Component {
       <div className="App">
         <div className="nav" style={{ position: 'relative', height: '100%' }}> <Header ></Header> </div>
         <div className="main">
-          <div className="desc">
-            <div className="desc-header">
+          <div className="side">
+            <div className="side-header">
               <MenuHeader></MenuHeader>
             </div>
-            <div className="desc-contents">
-              <div className="desc-menu">MENU<Menu></Menu></div>
-              <div className="desc-content">CONTENT</div>
+            <div className="side-content">
+              <div className="desc"> 
+                <div className="desc-contents">
+                  <div className="desc-menu">MENU<Menu></Menu></div>
+                  <div className="desc-content">CONTENT</div>
+                </div>
+              </div>
+              <div className="problem">
+                <div className="problem-list">LIST</div>
+                <div className="problem-content">CONTENT</div>
+              </div>
             </div>
-
-          </div>
-          <div className="problem">
-            <div className="problem-list">LIST</div>
-            <div className="problem-content">CONTENT</div>
           </div>
           <div className="workspace">
             <div className="editor" style={{ position: 'relative', height: '100%' }}>
