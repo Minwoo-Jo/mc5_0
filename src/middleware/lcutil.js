@@ -64,6 +64,8 @@ let lcutil = function() {
       }
     }
     report.time = Date.now() - time;
+    report.correctNum = score;
+    report.problemNum = n;
     report.result = result;
     report.toString = reportToString;
     return report;
