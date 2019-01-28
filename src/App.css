@@ -8,6 +8,7 @@ body {
 }
 
 div#root {
+  width: 100%;
   height: 100%;
 }
 
@@ -20,8 +21,8 @@ div#root {
 }
 
 .nav {
+  flex: 0 0 32px;
   padding: 8px;
-  flex: 0;
   display: flex;
   align-items: center;
   background-color: #8f84af;
@@ -41,11 +42,11 @@ div#root {
 }
 
 .main {
+  flex: 1;
   background-color: #bab6c5;
   padding: 4px;
   display: flex;
   flex-direction: row;
-  flex: 1;
 }
 
 .side {
@@ -57,7 +58,7 @@ div#root {
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
-  height: 64px;
+  flex: 0 0 64px;
   margin: 4px;
   margin-bottom: 2px;
   border-radius: 4px;
@@ -73,41 +74,53 @@ div#root {
 .desc {
   background-color: #ffffff;
   padding: 0px;
-  
+  width: 576px;
   display: flex;
   flex-direction: row;
   margin: 4px;
   border-radius: 4px;
   box-shadow: 2px 2px 5px 2px #00000040;
+  overflow: hidden;
+  transition: width ease 0.5s 0s;
 }
 
 .desc-menu {
   padding: 4px;
-  width: 78px;
+  flex: 0 1 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
 }
 
 .desc-content {
   padding: 4px;
-  width: 480px;
-  overflow: auto;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
   word-break: break-all;
   border-left-width: 1px;
   border-left-color: #bab6c5;
   border-left-style: solid;
+  transition: all ease 2s 0s;
+}
+
+.desc-fold {
+  width: 116px;
 }
 
 .problem {
   padding: 0px;
-  width: 320px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   
 }
 .problem-list {
+  flex: 0 0 240px;
   background-color: #ffffff;
   padding: 4px;
   margin: 4px;
-  height: 256px;
   border-radius: 4px;
   box-shadow: 2px 2px 5px 2px #00000040;
   display: flex;
@@ -116,12 +129,13 @@ div#root {
 }
 
 .problem-content {
-  background-color: #ffffff;
-  padding: 4px;
-  margin: 4px;
   flex: 1;
+  background-color: #ffffff;
+  padding: 8px;
+  margin: 4px;
   border-radius: 4px;
   box-shadow: 2px 2px 5px 2px #00000040;
+  overflow: auto;
 }
 
 .workspace {
@@ -151,6 +165,7 @@ div#root {
 .editor > #toolbar {
   margin-top: 4px;
   margin-bottom: 4px;
+  overflow-x: hidden;
 }
 
 .editor > .console {
@@ -161,6 +176,7 @@ div#root {
   flex: 1;
   border-radius: 4px;
   box-shadow: 2px 2px 5px 2px #00000040;
+  resize: none;
 }
 
 .console {
@@ -175,9 +191,49 @@ textarea {
   border-width: 0px;
 }
 
+.markdown code {
+  background-color: #ede7f1;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.markdown pre {
+  background-color: #ede7f1;
+  padding: 2px;
+  border-left: 5px #8f84af solid ;
+  border-radius: 4px;
+}
+
+button {
+  min-height: 36px;
+  max-height: 48px;
+}
+
 /* Others */
 
 hidden {
   display: none;
   visibility: hidden;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #8f84afa0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-corner {
+  background-color: rgba(0, 0, 0, 0);
 }

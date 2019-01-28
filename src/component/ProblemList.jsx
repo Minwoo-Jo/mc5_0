@@ -24,7 +24,7 @@ class ProblemList extends Component {
     render() {
         const { data } = this.props;
         const list = data.map(
-            info => (<Button variant="outlined" style={{width: '100%'}}>{info}</Button>)
+            info => (<Button variant="outlined">{info}</Button>)
         );
         return (
             <Fragment>
