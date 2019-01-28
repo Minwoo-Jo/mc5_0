@@ -11,23 +11,31 @@ class ProblemList extends Component {
         dispatch: PropTypes.func.isRequired,
     };
 
-    handleDetail = (chap) => ( index ) => {
-
+    handleDetail = ( md, js ) => {
+        console.log("TEST DETAIL")
+        console.log(md)
         const { dispatch } = this.props;
-        dispatch(selectProblem(chap)(index))
+        dispatch(selectProblem(md , js))
     }
 
   
     render() {
-        const {index} = this.props;
+        const {index, problems} = this.props.state;
         const chap = index;
-        const list = Array(index)
-        for(var i =0 ; i < index; i++){
-            list[i] = i;
-        }
-        const result = list.map((index) => {
+        
+        console.log(problems)
+        const probs = problems.map((prob) => {
+            return ({
+                js : Function(prob.js)(),
+                md : prob.md,
+        })})
+        
+
+        console.log(probs)
+      
+        const result = probs.map((prob) => {
             return (
-                <Button size ="small" style={{width:"100%", height:"5%"}} onClick={()=> this.handleDetail(chap)(index)}>{index}</Button>
+                <Button size ="small" style={{width:"100%", height:"5%"}} onClick={()=> this.handleDetail(prob.md , prob.js)}>{prob.js.title}</Button>
             )
         })
         
@@ -41,6 +49,6 @@ class ProblemList extends Component {
 
 function mapStateToProps(state) {
     console.log("PROBELM LIST UPDATE")
-    return { index: state.menuReducer.index }
+    return { state: state.menuReducer }
 }
 export default connect(mapStateToProps)(ProblemList);
