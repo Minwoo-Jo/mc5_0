@@ -5,7 +5,8 @@ import { selectMenu, MENU_REQUEST, MENU_SUCCESS, MENU_FAILURE } from '../action/
 const defaultState = {
     fetchingUpdate: false,
     index: 0,
-    text : ''
+    text : '',
+    problems : []
 };
 
 const menuReducer = (state = defaultState, action) => {
@@ -21,7 +22,8 @@ const menuReducer = (state = defaultState, action) => {
             return {
                 fetchingUpdate: true,
                 index: action.result.data.index,
-                text : action.result.data.text
+                text : action.result.data.text,
+                problems : action.result.data.problems
             };
         case MENU_FAILURE:
             return {

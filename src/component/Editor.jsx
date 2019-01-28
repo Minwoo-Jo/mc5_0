@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CodeFlask from 'codeflask';
 import { run } from '../action/run.js'
+import { submit } from '../action/submit.js'
 import Button from '@material-ui/core/Button'
 class Editor extends Component {
 
   static propTypes = {
     code: PropTypes.objectOf(PropTypes.any).isRequired,
+    js : PropTypes.objectOf(PropTypes.any).isRequired,
+    result : PropTypes.objectOf(PropTypes.any).isRequired,
     dispatch: PropTypes.func.isRequired,
   };
 
@@ -57,29 +60,46 @@ class Editor extends Component {
   }
   handleRun = (e) => {
     const code = this.state.code;
-
+    console.log("!@#!#@!@#!#@!#@!#@!@#!@#!@#!#@!@#!@#!@#!#@!@#!#@")
+    console.log(this.state)
     const { dispatch } = this.props;
     code != "" ?
       dispatch(run(code)) : console.log("TEST")
   }
+  handleSubmit = (e) => {
+    const code = this.state.code;
+    const js = this.props.js
+    console.log("TEST SUBMIT")
+    console.log(js)
+    const { dispatch } = this.props;
+    code != "" && js !==undefined ?
+      dispatch(submit(code, js)) : console.log("TEST")
+  }
   render() {
     const { code } = this.props;
-    console.log(this.props);
-    console.log("$$$$$$");
-    console.log(code);
+    const { js } = this.props;
+    const {result} = this.props;
 
-    let consoleText = (code === undefined || typeof code.code !== 'string') ?
-      "" :
-      code.code;
-    if (code.fetchingUpdate) {
-      code.fetchingUpdate = !code.fetchingUpdate
+    let consoleText = "";
+    let time;
+    let score;
+    if(code.fetchingUpdate) {
+      code.fetchingUpdate = false;
+      consoleText = code.code;
     }
+    if(result.fetchingUpdate) {
+      result.fetchingUpdate = false;
+      consoleText = result.code.toString();
+      time = result.code.time + "ms";
+      score = ""
+    }
+
     return <Fragment>
       <div id="codearea"></div>
       <div id="toolbar" >
         <Button onClick={this.handleRun} variant="outlined">RUN</Button>
-        <Button variant="outlined">Submit</Button>
-        <span id="report">실행시간: -; 점수: -/100</span>
+        <Button onClick= {this.handleSubmit} variant="outlined">Submit</Button>
+        <span id="report">실행시간: {time}; 점수: {score}/100</span>
       </div>
       <div className="console">
         <textarea value={consoleText}></textarea>
@@ -92,7 +112,8 @@ class Editor extends Component {
 function mapStateToProps(state) {
   console.log("EDITOR UPDATE")
   console.log(state)
-  return { code: state.runReducer }
+  console.log(state.problemReducer )
+  return { code: state.runReducer, js:state.problemReducer , result : state.submitReducer}
 }
 
 export default connect(mapStateToProps)(Editor);

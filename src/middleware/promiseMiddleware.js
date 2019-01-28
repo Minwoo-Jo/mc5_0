@@ -1,10 +1,11 @@
 import lc from './lc.js'
+import lcutil from './lcutil.js'
 import axios from 'axios';
 
 
 export default () => {
     return next => action => {
-        const { type, result, promise, ...rest } = action;
+        const { type, result,  js ,promise, ...rest  } = action;
         next({ result, type: `${type}_REQUEST` });
 
         switch (action.type) {
@@ -12,7 +13,12 @@ export default () => {
             console.log("log in")
                 return next({ result: action.result, type: `${type}_SUCCESS`})
             case "RUN":
-                return next({ result: lc.run('<SRC>', action.result, { predefined: true, timeLimit: 1 }), type: `${type}_SUCCESS` });
+                return next({ result: lc.run('<SRC>', result, { predefined: true, timeLimit: 1 }), type: `${type}_SUCCESS` });
+            case "SUBMIT":
+            console.log("SUBMIT)")
+            console.log(result)
+            console.log(js.js)
+                return next({  result: lcutil.gradeAll(result, js.js),type: `${type}_SUCCESS` })
             case "SELECTMENU":
             console.log("select menu")
                 return axios({
@@ -32,7 +38,8 @@ export default () => {
                 
             case "SELECTPROBLEM":
             console.log("select problem")
-                return next({ result: action.result, type: `${type}_SUCCESS`})
+            console.log(action)
+                return next({ result: action.result, js:action.js, type: `${type}_SUCCESS`})
 
             case "KEYDOWN":
                 return null

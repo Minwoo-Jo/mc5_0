@@ -21,7 +21,7 @@ class Menu extends Component {
     render() {
         const list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-        const { index } = this.props.index
+        const { index } = this.props.state
         const result = list.map((_) => {
             if (index == _)
                 return (
@@ -56,6 +56,6 @@ class Menu extends Component {
 function mapStateToProps(state) {
     console.log("MENU INDEX UPDATE")
     console.log(state)
-    return { index: state.menuReducer }
+    return { state: state.menuReducer }
 }
 export default connect(mapStateToProps)(Menu);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 
 class Problem extends Component {
     static propTypes = {
@@ -10,17 +11,16 @@ class Problem extends Component {
 
     render() {
         const { result } = this.props
-        console.log("@!#@#!!@#!@#!#@!@##!@!@#!@#")
         console.log(result)
         if (result.fetchingUpdate) {
             result.fetchingUpdate = !result.fetchingUpdate
             return (
-                <div>{result.result}</div>
+                <ReactMarkdown source = {result.result}> </ReactMarkdown>
             )
         }
         else
             return (
-                <div>{result.result}</div>
+                <ReactMarkdown source = {result.result}> </ReactMarkdown>
             )
 
     }
@@ -28,7 +28,6 @@ class Problem extends Component {
 
 function mapStateToProps(state) {
     console.log("PROBLEM DETAIL UPDATE")
-    console.log(state)
     return { result: state.problemReducer }
 }
 export default connect(mapStateToProps)(Problem);

@@ -14,11 +14,11 @@ const problemReducer = (state = defaultState, action) => {
                 fetchingUpdate: true
             };
         case PROBLEM_SUCCESS:
-            console.log("!!!!!!")
-            console.log(action)
+        console.log(action)
             return {
                 fetchingUpdate: true,
-                result: action.result
+                result: action.result,
+                js : action.js
             };
         case PROBLEM_FAILURE:
             return {
@@ -30,7 +30,3 @@ const problemReducer = (state = defaultState, action) => {
     return { ...state }
 };
 export default problemReducer;
-
-// export default combineReducers({
-//     run: runReducer
-// });
