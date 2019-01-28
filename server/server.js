@@ -16,9 +16,6 @@ if (cfg.web.cors) app.use(require('cors')());
 
 // [CONFIGURE SERVER PORT]
 var port = process.env.PORT || 80;
-// DEFINE MODEL
-var Lambda = require('./models/lambda')
-var User = require('./models/user')
 
 var fs = require('fs');
 
