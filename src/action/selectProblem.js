@@ -6,6 +6,7 @@ export const PROBLEM_FAILURE = 'SELECTPROBLEM_FAILURE';
 export const selectProblem = (chap) => (index) => {
    return {
     type: SELECTPROBLEM,
-    result : chap+"#"+index
+    result : chap+"#"+index,
+    promise:null
   };
 };

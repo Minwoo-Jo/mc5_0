@@ -7,7 +7,8 @@ export const  SUBMIT_FAILURE = 'SUBMIT_FAILURE';
 export const submit = (code) => {
     console.log(code)
     return {
-        type: SUBMIT
+        type: SUBMIT,
+        promise:null
 
     };
 };
