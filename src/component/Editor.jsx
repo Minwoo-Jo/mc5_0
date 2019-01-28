@@ -81,7 +81,7 @@ class Editor extends Component {
     const {result} = this.props;
 
     let consoleText = "";
-    let time;
+    let time = "-";
     let score;
     if(code.fetchingUpdate) {
       code.fetchingUpdate = false;
@@ -91,7 +91,7 @@ class Editor extends Component {
       result.fetchingUpdate = false;
       consoleText = result.code.toString();
       time = result.code.time + "ms";
-      score = ""
+      score = Math.floor(result.code.correctNum / result.code.problemNum * 100);
     }
 
     return <Fragment>
