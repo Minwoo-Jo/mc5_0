@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { selectMenu } from '../action/selectMenu.js';
 import Markdown from './Markdown'
 import ReactMarkdown from 'react-markdown';
+
 class Discription extends Component {
     static propTypes = {
         index: PropTypes.objectOf(PropTypes.any).isRequired,
@@ -17,10 +18,9 @@ class Discription extends Component {
 
         return (
             <Fragment>
-                <div>{index}</div> 
-                <ReactMarkdown source = {text}> </ReactMarkdown>
-
-     
+                <div className="markdown">
+                    <ReactMarkdown source = {text}> </ReactMarkdown>
+                </div>
             </Fragment>
         )
 

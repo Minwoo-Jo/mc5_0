@@ -30,11 +30,11 @@ class Login extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         <span>아이디</span>
-                        <input ref={(ref) => { this.id = ref; }} />
+                        <input type="text" ref={(ref) => { this.id = ref; }} size="12"/>
                     </label>
                     <label>
                         <span>비밀번호</span>
-                        <input type="password" ref={(ref) => { this.password = ref; }} />
+                        <input type="password" ref={(ref) => { this.password = ref; }} size="12"/>
                     </label>
                     <button onClick={this.handleLogIn}>LOG IN</button>
                     <button onClick={this.handleSignIn}>SIGN IN</button>

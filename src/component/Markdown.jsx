@@ -28,7 +28,9 @@ class Markdown extends React.Component {
   }
 
   render() {
-    return <ReactMarkdown className="markdown" source={this.state.doc} />;
+    return (
+      <ReactMarkdown className="markdown" source={this.state.doc} />
+    );
   }
 }
 
