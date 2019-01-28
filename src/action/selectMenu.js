@@ -6,6 +6,6 @@ export const MENU_FAILURE = 'SELECTMENU_FAILURE';
 export const selectMenu = (index) => {
    return {
       type: SELECTMENU,
-      promise: { method: 'post', url: 'http://localhost:80/api/get_discription', data: { index } }
+      promise: { method: 'post', url: 'http://143.248.38.120:80/api/get_discription', data: { index } }
   };
 };

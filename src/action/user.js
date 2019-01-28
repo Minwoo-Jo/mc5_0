@@ -8,6 +8,6 @@ export const login = (id, password) => {
   return {
     
     type: LOGIN,
-    promise: { method: 'post', url: 'http://localhost:80/login', data: { id, password } }
+    promise: { method: 'post', url: 'http://143.248.38.120:80/login', data: { id, password } }
   };
 };
