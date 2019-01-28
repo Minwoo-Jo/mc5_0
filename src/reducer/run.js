@@ -14,8 +14,6 @@ const runReducer = (state = defaultState, action) => {
                 fetchingUpdate: true
             };
         case RUN_SUCCESS:
-            console.log("!!!!!!")
-            console.log(action)
             return {
                 fetchingUpdate: true,
                 code: action.result
@@ -31,6 +29,3 @@ const runReducer = (state = defaultState, action) => {
 };
 export default runReducer;
 
-// export default combineReducers({
-//     run: runReducer
-// });
