@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import './App.css'
 
-import ReactMarkdown from 'react-markdown';
-
-import Button from '@material-ui/core/Button';
-
-import Editor from './component/Editor';
-import Menu from './component/Menu';
-import Header from './component/Header';
-import MenuHeader from './component/MenuHeader';
-import ProblemList from './component/ProblemList';
+import Editor from './component/Editor'
+import Menu from './component/Menu'
+import Header from './component/Header'
+import MenuHeader from './component/MenuHeader'
+import Discription from './component/Discription'
+import ProblemList from './component/ProblemList'
+import Problem from './component/Problem'
 
 class App extends Component {
   state = {
@@ -75,30 +73,15 @@ class App extends Component {
               <MenuHeader></MenuHeader>
             </div>
             <div className="side-content">
-              <div className={ "desc " + (this.state.isLectureOpen? "" : "desc-fold") }>
-                <div className="desc-menu">
-                  <Button onClick={this.toggleLectureOpen}>
-                    { this.state.isLectureOpen? "<<<" : ">>>" }
-                  </Button>
-                  <Menu></Menu>
-                </div>
-                <div className="desc-content">
-                  CONTENT
-                  <div className="markdown">
-                    <ReactMarkdown source={this.state.lectureMarkdown}/>
-                  </div>
+              <div className="desc"> 
+                <div className="desc-contents">
+                  <div className="desc-menu">MENU<Menu></Menu></div>
+                  <div className="desc-content">CONTENT<Discription></Discription></div>
                 </div>
               </div>
               <div className="problem">
-                <div className="problem-list">
-                  <ProblemList data={["abc", "def", "3", "4", "5", "6", "7"]} />
-                </div>
-                <div className="problem-content">
-                  CONTENT
-                  <div className="markdown">
-                    <ReactMarkdown source={this.state.problemMarkdown}/>
-                  </div>
-                </div>
+                <div className="problem-list">LIST<ProblemList></ProblemList> </div>
+                <div className="problem-content">CONTENT<Problem> </Problem></div>
               </div>
             </div>
           </div>

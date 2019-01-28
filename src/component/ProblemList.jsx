@@ -1,42 +1,46 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectMenu } from '../action/selectMenu.js'
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
+import { selectProblem } from '../action/selectProblem'
 
 
 class ProblemList extends Component {
     static propTypes = {
         index: PropTypes.objectOf(PropTypes.any).isRequired,
-        data: PropTypes.arrayOf(PropTypes.string).isRequired,
         dispatch: PropTypes.func.isRequired,
     };
-    static defaultProps = {
-      data: []
-    };
 
-    handleIndex = (e) => {
+    handleDetail = (chap) => ( index ) => {
+
         const { dispatch } = this.props;
-        dispatch(selectMenu(e))
+        dispatch(selectProblem(chap)(index))
     }
 
- 
+  
     render() {
-        const { data } = this.props;
-        const list = data.map(
-            info => (<Button variant="outlined">{info}</Button>)
-        );
-        return (
-            <Fragment>
-              List
-              {list}
-            </Fragment>
-        );
+        const {index} = this.props;
+        const chap = index;
+        const list = Array(index)
+        for(var i =0 ; i < index; i++){
+            list[i] = i;
+        }
+        const result = list.map((index) => {
+            return (
+                <Button size ="small" style={{width:"100%", height:"5%"}} onClick={()=> this.handleDetail(chap)(index)}>{index}</Button>
+            )
+        })
+        
+        return( 
+            <div>{result}</div>
+
+        )
+           
     }
 }
 
-
 function mapStateToProps(state) {
-    return {  }
+    console.log("PROBELM LIST UPDATE")
+    return { index: state.menuReducer.index }
 }
 export default connect(mapStateToProps)(ProblemList);

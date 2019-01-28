@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import { selectMenu, MENU_REQUEST, MENU_SUCCESS, MENU_FAILURE } from '../action/selectMenu.js';
 
+
 const defaultState = {
     fetchingUpdate: false,
-    index: {}
+    index: 0,
+    text : ''
 };
 
 const menuReducer = (state = defaultState, action) => {
@@ -14,11 +16,12 @@ const menuReducer = (state = defaultState, action) => {
                 fetchingUpdate: true
             };
         case MENU_SUCCESS:
-            console.log("!!!!!!")
+        console.log("TEST MENU")
             console.log(action)
             return {
                 fetchingUpdate: true,
-                index: action.result
+                index: action.result.data.index,
+                text : action.result.data.text
             };
         case MENU_FAILURE:
             return {
@@ -30,7 +33,3 @@ const menuReducer = (state = defaultState, action) => {
     return { ...state }
 };
 export default menuReducer;
-
-// export default combineReducers({
-//     run: runReducer
-// });
