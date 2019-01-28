@@ -64,33 +64,27 @@ class Editor extends Component {
   }
   render() {
     const { code } = this.props;
+    console.log(this.props);
+    console.log("$$$$$$");
+    console.log(code);
+
+    let consoleText = (code === undefined || typeof code.code !== 'string') ?
+      "" :
+      code.code;
     if (code.fetchingUpdate) {
       code.fetchingUpdate = !code.fetchingUpdate
-      return <Fragment>
-        <div id="codearea"></div>
-        <div id="toolbar" >
-          <Button onClick={this.handleRun} variant="outlined">RUN</Button><Button variant="outlined">Submit</Button>
-        </div>
-        <div className="console">
-          <textarea value={code.code}></textarea>
-        </div>
-
-      </Fragment>
-
     }
     return <Fragment>
       <div id="codearea"></div>
       <div id="toolbar" >
-        <Button onClick={this.handleRun} variant="outlined">RUN</Button><Button variant="outlined">Submit</Button>
+        <Button onClick={this.handleRun} variant="outlined">RUN</Button>
+        <Button variant="outlined">Submit</Button>
+        <span id="report">실행시간: -; 점수: -/100</span>
       </div>
       <div className="console">
-        <textarea value=""></textarea>
+        <textarea value={consoleText}></textarea>
       </div>
-
     </Fragment>
-
-
-
   }
 
 }
