@@ -13,31 +13,49 @@ class Menu extends Component {
     };
     handleIndex = (e) => {
         const { dispatch } = this.props;
+        console.log("INDEX")
+        console.log(e)
         dispatch(selectMenu(e))
     }
 
- 
     render() {
-        return (
-            <Fragment>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 1.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 2.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 3.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 4.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 5.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 6.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 7.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 8.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 9.</Button>
-                <Button variant="outlined" style={{width:'100%', height:'9%'}}>CH 10.</Button>
-            </Fragment>
+        const list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-        )
+        const { index } = this.props.index
+        const result = list.map((_) => {
+            if (index == _)
+                return (
+                    <Button variant="outlined" style={{ width: '100%', height: '9%' }} onClick={() => this.handleIndex(_)}>CH {index + 1}.</Button>
+                )
+            else
+                return (
+                    <Button style={{ width: '100%', height: '9%' }} onClick={() => this.handleIndex(_)}>CH {_ + 1}.</Button>
+                )
+        })
+        if (this.props.fetchingUpdate) {
+            this.props.fetchingUpdate = !this.props.fetchingUpdate
+            return (
+
+                <Fragment>
+                    {result}
+                </Fragment>
+            )
+        }
+        else
+            return (
+
+                <Fragment>
+                    {result}
+                </Fragment>
+            )
+
     }
 }
 
 
 function mapStateToProps(state) {
-    return {  }
+    console.log("MENU INDEX UPDATE")
+    console.log(state)
+    return { index: state.menuReducer }
 }
 export default connect(mapStateToProps)(Menu);

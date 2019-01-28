@@ -3,7 +3,7 @@ import { run, RUN_REQUEST, RUN_SUCCESS, RUN_FAILURE } from '../action/run.js';
 
 const defaultState = {
     fetchingUpdate: false,
-    code: {}
+    code: ""
 };
 
 const runReducer = (state = defaultState, action) => {

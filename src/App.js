@@ -4,6 +4,10 @@ import Editor from './component/Editor'
 import Menu from './component/Menu'
 import Header from './component/Header'
 import MenuHeader from './component/MenuHeader'
+import Discription from './component/Discription'
+import ProblemList from './component/ProblemList'
+import Problem from './component/Problem'
+
 class App extends Component {
   state = {
     isOpen: false
@@ -28,12 +32,12 @@ class App extends Component {
               <div className="desc"> 
                 <div className="desc-contents">
                   <div className="desc-menu">MENU<Menu></Menu></div>
-                  <div className="desc-content">CONTENT</div>
+                  <div className="desc-content">CONTENT<Discription></Discription></div>
                 </div>
               </div>
               <div className="problem">
-                <div className="problem-list">LIST</div>
-                <div className="problem-content">CONTENT</div>
+                <div className="problem-list">LIST<ProblemList></ProblemList> </div>
+                <div className="problem-content">CONTENT<Problem> </Problem></div>
               </div>
             </div>
           </div>

@@ -9,6 +9,7 @@ export const run = (code) => {
     console.log(code)
     return {
         type: RUN,
-        result: code
+        result: code,
+        promise:null
     };
 };
